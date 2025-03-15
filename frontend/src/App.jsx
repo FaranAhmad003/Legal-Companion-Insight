@@ -1,12 +1,11 @@
-
-import Landing from "./components/Landing";
+import Login from "./components/login";
 import Home from "./components/Home";
 
 function App() {
   return (
     <div>
-      <Home/>
-      
+      <Login />
+     
     </div>
   );
 }
