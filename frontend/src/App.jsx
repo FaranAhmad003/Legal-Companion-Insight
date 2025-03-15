@@ -1,21 +1,14 @@
-import { useEffect, useState } from "react";
-import Login from "./components/Login";
-import "./App.css";
+
+import Landing from "./components/Landing";
+import Home from "./components/Home";
 
 function App() {
-    const [message, setMessage] = useState("");
-
-    useEffect(() => {
-        fetch("http://127.0.0.1:8000/")
-            .then(response => response.json())
-            .then(data => setMessage(data.message));
-    }, []);
-
-    return (
-        <div className="app">
-            <Login />
-        </div>
-    );
+  return (
+    <div>
+      <Home/>
+      
+    </div>
+  );
 }
 
 export default App;

@@ -1,0 +1,12 @@
+.hero-text-container {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  max-width: 50%;
+  color: #e5d5c5;
+}
+
+.hero-text-container p {
+  max-width: 80%;
+}
