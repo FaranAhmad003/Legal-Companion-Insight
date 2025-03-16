@@ -47,29 +47,18 @@ class UserSignup(BaseModel):
 class UserLogin(BaseModel):
     username: str
     password: str
-
-# ✅ Hash Password
 def hash_password(password: str):
     return pwd_context.hash(password)
-
-# ✅ Verify Password
 def verify_password(plain_password, hashed_password):
     return pwd_context.verify(plain_password, hashed_password)
-
-# ✅ USER SIGNUP API
 @app.post("/signup/")
 def signup(user: UserSignup, db: Session = Depends(get_db)):
-    # Check if the user already exists
     check_user_query = text("SELECT * FROM users WHERE username = :username OR email = :email")
     existing_user = db.execute(check_user_query, {"username": user.username, "email": user.email}).fetchone()
 
     if existing_user:
         raise HTTPException(status_code=400, detail="Username or email already exists")
-
-    # Hash the Password before storing
     hashed_password = hash_password(user.password)
-
-    # Insert new user into MySQL
     insert_user_query = text("""
         INSERT INTO users (first_name, last_name, username, password, email, phone_no, secret_key, user_type)
         VALUES (:first_name, :last_name, :username, :password, :email, :phone_no, :secret_key, :user_type)
@@ -93,8 +82,6 @@ def signup(user: UserSignup, db: Session = Depends(get_db)):
         db.rollback()
         raise HTTPException(status_code=500, detail=f"Database Error: {str(e)}")
 
-
-# ✅ USER LOGIN API
 @app.post("/login/")
 def login(user: UserLogin, db: Session = Depends(get_db)):
     # Retrieve user by username
@@ -105,16 +92,11 @@ def login(user: UserLogin, db: Session = Depends(get_db)):
         raise HTTPException(status_code=401, detail="Invalid username or password")
 
     stored_username, stored_password = db_user
-
-    # 🔥 Fix: Ensure password verification works with hashed password
     if not verify_password(user.password, stored_password):
         raise HTTPException(status_code=401, detail="Invalid username or password")
 
     return {"message": "Login successful", "username": stored_username}
 
-
-
-# ✅ RUN FastAPI Server
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="127.0.0.1", port=8000, reload=True)
