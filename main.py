@@ -6,7 +6,7 @@ from passlib.context import CryptContext
 from fastapi.middleware.cors import CORSMiddleware
 import pymysql
 
-# ✅ MySQL Database Connection
+# ✅ Database Connection
 DATABASE_URL = "mysql+pymysql://root:12345678@localhost/Flywings"
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind=engine, autoflush=False)
@@ -17,9 +17,9 @@ app = FastAPI()
 # ✅ CORS Middleware to Allow Frontend Requests
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Frontend URL
+    allow_origins=["http://localhost:5173"],  
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],  
+    allow_methods=["*"],  
     allow_headers=["*"],  
 )
 
@@ -47,10 +47,16 @@ class UserSignup(BaseModel):
 class UserLogin(BaseModel):
     username: str
     password: str
+
+# ✅ Hash Password Function
 def hash_password(password: str):
     return pwd_context.hash(password)
+
+# ✅ Verify Password Function
 def verify_password(plain_password, hashed_password):
     return pwd_context.verify(plain_password, hashed_password)
+
+# ✅ Signup API
 @app.post("/signup/")
 def signup(user: UserSignup, db: Session = Depends(get_db)):
     check_user_query = text("SELECT * FROM users WHERE username = :username OR email = :email")
@@ -58,6 +64,7 @@ def signup(user: UserSignup, db: Session = Depends(get_db)):
 
     if existing_user:
         raise HTTPException(status_code=400, detail="Username or email already exists")
+
     hashed_password = hash_password(user.password)
     insert_user_query = text("""
         INSERT INTO users (first_name, last_name, username, password, email, phone_no, secret_key, user_type)
@@ -82,9 +89,9 @@ def signup(user: UserSignup, db: Session = Depends(get_db)):
         db.rollback()
         raise HTTPException(status_code=500, detail=f"Database Error: {str(e)}")
 
+# ✅ Login API
 @app.post("/login/")
 def login(user: UserLogin, db: Session = Depends(get_db)):
-    # Retrieve user by username
     check_user_query = text("SELECT username, password FROM users WHERE username = :username")
     db_user = db.execute(check_user_query, {"username": user.username}).fetchone()
 

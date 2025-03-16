@@ -1,0 +1,52 @@
+.practice-areas-container {
+  padding: 80px 20px;
+  background-color: #F2E6DD; /* Light amber background */
+}
+
+.practice-areas-title {
+  font-size: 2.5rem;
+  font-family: serif;
+  color: #7b341e; /* Dark brown */
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.practice-areas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.practice-area-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid #D4BBA8; /* Amber border */
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.practice-area-card:hover {
+  transform: translateY(-5px);
+}
+
+.practice-area-icon {
+  height: 48px;
+  width: 48px;
+  margin-bottom: 15px;
+  color: #b45309; /* Deep amber color */
+}
+
+.practice-area-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #7b341e; /* Dark brown */
+  margin-bottom: 10px;
+}
+
+.practice-area-description {
+  color: #92400e; /* Slightly lighter brown */
+}

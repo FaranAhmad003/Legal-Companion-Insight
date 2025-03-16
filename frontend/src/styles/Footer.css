@@ -1,0 +1,34 @@
+.footer-container {
+  background-color: #5a2616; /* Dark brown background */
+  color: #f7d8ba; /* Light beige text */
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.footer-logo svg {
+  width: 24px;
+  height: 24px;
+}
+
+.footer-logo span {
+  font-size: 1.2rem;
+  font-family: serif;
+  margin-left: 8px;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+}
