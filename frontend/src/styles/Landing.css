@@ -64,3 +64,22 @@
 }
 
 
+.floating-lawyer {
+  position: fixed;
+  bottom: 20px; /* Distance from bottom */
+  right: 20px; /* Distance from right */
+  width: 100px; /* Adjust image size */
+  height: auto;
+  z-index: 100;
+  animation: floatUpDown 1s ease-in-out infinite alternate;
+}
+
+/* Hover Animation */
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Scale } from "lucide-react";
 import "../styles/Landing.css";
+import lawyerImage from "../assets/Lawyer.png"; // Import image
 
 const Landing = () => {
   return (
@@ -14,10 +15,13 @@ const Landing = () => {
           <Link to="/">Home</Link>
           <Link to="/services">Services</Link>
           <Link to="/about">About</Link>
-          <Link to="/login">Login</Link> {/* Updated Link for Login */}
+          <Link to="/login">Login</Link>
         </div>
       </nav>
-      <div className="background-overlay" style={{ backgroundColor: "rgba(92, 64, 51, 0.5)" }}></div>
+      <div className="background-overlay"></div>
+
+      {/* Floating Lawyer Image */}
+      <img src={lawyerImage} alt="Lawyer" className="floating-lawyer" />
     </div>
   );
 };
