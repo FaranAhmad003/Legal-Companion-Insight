@@ -1,7 +1,25 @@
+import { useEffect, useState } from "react";
 import { Shield, Users2, BookOpen } from "lucide-react";
-import "../styles/PracticeAreas.css"; // Importing CSS file
+import "../styles/PracticeAreas.css";
 
 const PracticeAreas = () => {
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const section = document.querySelector(".practice-areas-container");
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          setAnimate(true);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const services = [
     {
       icon: <Shield className="practice-area-icon" />,
@@ -25,7 +43,7 @@ const PracticeAreas = () => {
       <h2 className="practice-areas-title">Our Practice Areas</h2>
       <div className="practice-areas-grid">
         {services.map((service, index) => (
-          <div key={index} className="practice-area-card">
+          <div key={index} className={`practice-area-card ${animate ? "animate" : ""}`}>
             {service.icon}
             <h3 className="practice-area-title">{service.title}</h3>
             <p className="practice-area-description">{service.description}</p>

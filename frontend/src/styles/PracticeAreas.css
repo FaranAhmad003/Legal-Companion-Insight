@@ -24,9 +24,17 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  border: 2px solid #D4BBA8; /* Amber border */
+  border: 2px solid #D4BBA8;
   text-align: center;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 2s ease-in-out forwards;
+  opacity: 0;
+}
+.practice-area-card.animate {
+  opacity: 1;
+  transform: translateY(10);
 }
 
 .practice-area-card:hover {

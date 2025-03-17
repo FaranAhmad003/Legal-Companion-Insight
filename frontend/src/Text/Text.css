@@ -3,10 +3,55 @@
   top: 50%;
   left: 10%;
   transform: translateY(-50%);
-  max-width: 50%;
+  width: 45%; /* Restricts width to half screen */
   color: #e5d5c5;
+  font-size: 1.4rem; /* Further reduced for balance */
+  font-weight: bold;
+  font-family: "serif";
+  overflow: hidden;
+  word-wrap: break-word;
+  white-space: normal;
+  line-height: 1.5; /* Improves readability */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.hero-text-container p {
-  max-width: 80%;
+/* Animated Text */
+.animated-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: normal; /* Allows text to break into multiple lines */
+  word-wrap: break-word;
+  border-right: 3px solid transparent;
+  animation: fadeIn 0.5s ease-in-out;
+  max-width: 100%;
+}
+
+/* Blinking Cursor */
+.blinking-cursor {
+  display: inline-block;
+  margin-left: 5px;
+  width: 8px;
+  height: 20px;
+  background-color: #9d968f;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
