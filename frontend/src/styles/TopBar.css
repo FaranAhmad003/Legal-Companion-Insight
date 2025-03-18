@@ -1,0 +1,45 @@
+.top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem; /* Reduced height */
+  background-color: rgba(92, 64, 51, 0.9); /* Dark brown with slight transparency */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(10px);
+}
+
+.top-bar .menu {
+  display: flex;
+  gap: 2rem; /* Equal spacing between buttons */
+  margin-left: auto; /* Pushes the menu to the right */
+}
+
+.top-bar a {
+  color: #e5d5c5; /* Beige text color */
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: text-decoration 0.3s ease, color 0.3s ease;
+}
+
+.top-bar a:hover {
+  text-decoration: underline;
+  color: #fff; /* Lighten color on hover */
+}
+
+.top-bar .logo {
+  display: flex;
+  align-items: center;
+  color: #e5d5c5; /* Beige */
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.top-bar .logo svg {
+  margin-right: 10px;
+  height: 32px;
+  width: 32px;
+}

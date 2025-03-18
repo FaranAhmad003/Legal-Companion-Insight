@@ -18,11 +18,6 @@ function App() {
   return (
     <Router>
       <div>
-        {/* Backend connection status message */}
-        <h2 style={{ textAlign: "center", color: "green" }}>
-          {backendMessage}
-        </h2>
-
         {}
         <Routes>
           <Route path="/" element={<Home />} />
