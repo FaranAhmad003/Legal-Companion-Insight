@@ -1,0 +1,159 @@
+/* General Page Styling */
+body {
+  font-family: "Georgia", serif;
+  background-color: #f5e6d3;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main Container */
+.cases-container {
+  min-height: 100vh;
+  background-color: #f5e6d3;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.cases-content {
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Heading */
+.cases-title {
+  font-size: 2.5rem;
+  color: #5c4033;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+/* Case Grid */
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+/* Case Card */
+.case-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid #8b4513;
+  padding: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.case-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Title */
+.case-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #8b4513;
+  margin-bottom: 10px;
+}
+
+/* Summary */
+.case-summary {
+  color: #6b4423;
+  font-size: 1rem;
+  height: 80px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+
+/* Case Details */
+.case-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.case-label {
+  font-weight: bold;
+  color: #8b4513;
+  display: block;
+}
+
+/* Case Categories */
+.case-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.case-category {
+  background: #deb887;
+  color: #5c4033;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+/* Download Button */
+.case-footer {
+  text-align: right;
+}
+
+.case-link {
+  display: inline-block;
+  background-color: #8b4513;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.case-link:hover {
+  background-color: #6b4423;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5e6d3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8b4513;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b4423;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .cases-title {
+    font-size: 2rem;
+  }
+
+  .cases-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case-title {
+    font-size: 1.5rem;
+  }
+
+  .case-summary {
+    font-size: 0.9rem;
+  }
+
+  .case-details p {
+    font-size: 0.9rem;
+  }
+}

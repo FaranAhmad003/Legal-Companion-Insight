@@ -11,8 +11,8 @@ const TopBar = () => {
       </div>
       <div className="menu">
         <Link to="/">Home</Link>
-        <Link to="/services">Services</Link>
-        <Link to="/about">About</Link>
+        <Link to="/chat">Chat</Link>
+        <Link to="/cases">Cases</Link>
         <Link to="/login">Login</Link>
       </div>
     </nav>
