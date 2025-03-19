@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Login from "./components/login";
 import Cases from "./components/Cases";
+import Chats from "./components/Chats";
+import ContextProvider from "./components/Context"; 
+
 
 
 function App() {
@@ -17,19 +20,16 @@ function App() {
       });
   }, []);
 
-  return (
+ return (
     <Router>
-      <div>
-      
-
-        {}
+      <ContextProvider>  {/* ✅ Wrap ContextProvider */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cases" element={<Cases />} />
-
+          <Route path="/chats" element={<Chats />} />  {/* Chats will now have context */}
         </Routes>
-      </div>
+      </ContextProvider>
     </Router>
   );
 }

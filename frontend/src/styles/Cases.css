@@ -1,18 +1,20 @@
 /* General Page Styling */
 body {
   font-family: "Georgia", serif;
-  background-color: #f5e6d3;
+  background-color: #8b5e3c; /* Dark brownish background */
   margin: 0;
   padding: 0;
+  height: 100vh; /* Ensure full-page coverage */
 }
 
 /* Main Container */
 .cases-container {
   min-height: 100vh;
-  background-color: #f5e6d3;
+  background-color: #8b5e3c; /* Dark brownish background */
   padding: 40px;
   display: flex;
   justify-content: center;
+  overflow: auto; /* Fixes background rendering on scroll */
 }
 
 .cases-content {
@@ -23,10 +25,11 @@ body {
 /* Heading */
 .cases-title {
   font-size: 2.5rem;
-  color: #5c4033;
+  color: #f8f1e9; /* Light beige for contrast */
   text-align: center;
   margin-bottom: 40px;
   font-weight: bold;
+  margin-top: 60px; /* Push heading below the top bar */
 }
 
 /* Case Grid */
@@ -34,14 +37,15 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 30px;
+  margin-top: 60px; /* ✅ Push the cards down 60px */
 }
 
 /* Case Card */
 .case-card {
   background: white;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border: 2px solid #8b4513;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border: 2px solid #693d23; /* Darker border for better contrast */
   padding: 20px;
   transition: transform 0.3s ease-in-out;
 }
@@ -54,13 +58,13 @@ body {
 .case-title {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #8b4513;
+  color: #693d23; /* Rich dark brown */
   margin-bottom: 10px;
 }
 
 /* Summary */
 .case-summary {
-  color: #6b4423;
+  color: #4a2f1e;
   font-size: 1rem;
   height: 80px;
   overflow-y: auto;
@@ -73,12 +77,14 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 10px;
   margin-bottom: 15px;
+  color: #b68f65;
 }
 
 .case-label {
   font-weight: bold;
-  color: #8b4513;
+  color: #693d23;
   display: block;
+  
 }
 
 /* Case Categories */
@@ -90,8 +96,8 @@ body {
 }
 
 .case-category {
-  background: #deb887;
-  color: #5c4033;
+  background: #b68f65;
+  color: #3e2717;
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 0.9rem;
@@ -104,7 +110,7 @@ body {
 
 .case-link {
   display: inline-block;
-  background-color: #8b4513;
+  background-color: #693d23;
   color: white;
   padding: 10px 16px;
   border-radius: 8px;
@@ -114,7 +120,7 @@ body {
 }
 
 .case-link:hover {
-  background-color: #6b4423;
+  background-color: #4a2f1e;
 }
 
 /* Scrollbar Styling */
@@ -123,16 +129,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f5e6d3;
+  background: #8b5e3c;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #8b4513;
+  background: #5c3b25;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #6b4423;
+  background: #3e2717;
 }
 
 /* Mobile Responsive */
